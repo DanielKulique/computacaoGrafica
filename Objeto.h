@@ -19,6 +19,7 @@ public:
     virtual void desenhar(QPainter &painter) = 0;
     virtual ~Objeto();
 
+    void mover(float dx, float dy);
 
 };
 

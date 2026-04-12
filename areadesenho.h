@@ -11,12 +11,24 @@ class AreaDesenho : public QFrame {
 
 public:
     explicit AreaDesenho(QWidget *parent = nullptr);
-
+    std::vector<Ponto> pontosTemporarios;
     DisplayFile displayFile;
+
+public slots:
+    void moverObjetos(float dx, float dy);
+
+    void setModo(const QString &modo);
+
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+
+private:
+    QString modoDesenho = "reta";
 };
+
+
 
 #endif
 
