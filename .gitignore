@@ -1,2 +1,10 @@
 build/
+*.user
 *.pro.user
+*.moc
+*.o
+*.obj
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+Makefile
