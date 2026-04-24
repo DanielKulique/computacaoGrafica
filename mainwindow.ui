@@ -61,6 +61,15 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Lista de Objetos</string>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
@@ -71,6 +80,16 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <widget class="QListWidget" name="listWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>151</width>
+       <height>731</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QDockWidget" name="dockWidget_2">
@@ -84,54 +103,17 @@
     <number>2</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_4">
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>10</y>
-       <width>82</width>
-       <height>116</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QPushButton" name="btnEsquerda">
-        <property name="text">
-         <string>▶</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnCima">
-        <property name="text">
-         <string>▲</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnDireita">
-        <property name="text">
-         <string>◀</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnBaixo">
-        <property name="text">
-         <string>▼</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
     <widget class="QComboBox" name="comboForma">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>140</y>
-       <width>79</width>
-       <height>23</height>
+       <x>30</x>
+       <y>120</y>
+       <width>101</width>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="toolTip">
+      <string>Selecionar Forma</string>
      </property>
      <item>
       <property name="text">
@@ -152,14 +134,95 @@
     <widget class="QPushButton" name="btnFechar">
      <property name="geometry">
       <rect>
+       <x>30</x>
+       <y>160</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Concluir Polígono</string>
+     </property>
+     <property name="text">
+      <string>Fechar Polígono</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
        <x>10</x>
-       <y>170</y>
+       <y>210</y>
+       <width>131</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="4" column="1">
+       <widget class="QPushButton" name="btnBaixo">
+        <property name="toolTip">
+         <string>Mover Para Baixo</string>
+        </property>
+        <property name="text">
+         <string>▼</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="btnCima">
+        <property name="toolTip">
+         <string>Mover Para Cima</string>
+        </property>
+        <property name="text">
+         <string>▲</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="btnEsquerda">
+        <property name="toolTip">
+         <string>Mover Para Esquerda</string>
+        </property>
+        <property name="text">
+         <string>▶</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="btnDireita">
+        <property name="toolTip">
+         <string>Mover Para Esquerda</string>
+        </property>
+        <property name="toolTipDuration">
+         <number>-1</number>
+        </property>
+        <property name="text">
+         <string>◀</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="btnCor">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>340</y>
        <width>101</width>
        <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>Fechar Polígono</string>
+      <string>COR</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinEspessura">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>390</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -175,11 +238,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <action name="actionSalvar">
-   <property name="text">
-    <string>Salvar</string>
-   </property>
-  </action>
   <action name="actionAbrir">
    <property name="text">
     <string>Abrir</string>
@@ -193,6 +251,16 @@
   <action name="actionConfigura_es">
    <property name="text">
     <string>Configurações</string>
+   </property>
+  </action>
+  <action name="SalvarPNG">
+   <property name="text">
+    <string>PNG</string>
+   </property>
+  </action>
+  <action name="actionSalvar">
+   <property name="text">
+    <string>Salvar</string>
    </property>
   </action>
  </widget>

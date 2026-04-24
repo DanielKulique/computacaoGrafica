@@ -9,5 +9,6 @@ ObjetoPonto::ObjetoPonto(QString nome, Ponto p)
 
 void ObjetoPonto::desenhar(QPainter &painter)
 {
+    painter.setPen(QPen(this->minhaCor, this->minhaEspessura));
     painter.drawPoint(round(pontos[0].getX()), round(pontos[0].getY()));
 }

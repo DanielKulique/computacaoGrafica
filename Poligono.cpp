@@ -9,6 +9,7 @@ Poligono::Poligono(QString nome, std::vector<Ponto> pts)
 
 void Poligono::desenharSegmento(QPainter &painter, Ponto a, Ponto b)
 {
+
     float x1 = a.getX(), y1 = a.getY();
     float x2 = b.getX(), y2 = b.getY();
 
@@ -35,6 +36,7 @@ void Poligono::desenharSegmento(QPainter &painter, Ponto a, Ponto b)
 
 void Poligono::desenhar(QPainter &painter)
 {
+    painter.setPen(QPen(this->minhaCor, this->minhaEspessura));
     int n = pontos.size();
     if (n < 2) return;
 

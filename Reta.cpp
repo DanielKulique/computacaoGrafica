@@ -10,6 +10,7 @@ Reta::Reta(QString nome, Ponto p1, Ponto p2)
 
 void Reta::desenhar(QPainter &painter)
 {
+    painter.setPen(QPen(this->minhaCor, this->minhaEspessura));
     float x1 = pontos[0].getX();
     float y1 = pontos[0].getY();
 
